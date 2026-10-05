@@ -1,0 +1,38 @@
+{
+  "name": "windows-cleaner",
+  "version": "1.0.0",
+  "description": "High-performance CLI disk cleanup tool for Windows",
+  "main": "dist/index.js",
+  "bin": {
+    "windows-cleaner": "dist/index.js"
+  },
+  "type": "module",
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "build": "tsc",
+    "clean": "tsx src/index.ts clean",
+    "scan": "tsx src/index.ts scan"
+  },
+  "keywords": [
+    "windows",
+    "cleaner",
+    "cli",
+    "disk-cleanup",
+    "utility"
+  ],
+  "author": "shiddiqeuy",
+  "license": "MIT",
+  "dependencies": {
+    "bytes": "^3.1.2",
+    "chalk": "^5.3.0",
+    "cli-table3": "^0.6.5",
+    "commander": "^12.1.0",
+    "ora": "^8.1.1"
+  },
+  "devDependencies": {
+    "@types/bytes": "^3.1.4",
+    "@types/node": "^22.5.4",
+    "typescript": "^5.5.4",
+    "tsx": "^4.19.0"
+  }
+}
