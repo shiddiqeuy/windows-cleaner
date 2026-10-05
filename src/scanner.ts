@@ -67,19 +67,82 @@ export function getTargetCategories(): TargetCategory[] {
     },
     {
       id: 'browser_cache',
-      name: 'Browser Caches (C:)',
-      description: 'Chrome, Edge, Brave, and Firefox Web Cache files',
+      name: 'Browser Caches (Chrome, Edge, etc.)',
+      description: 'Chrome, Edge, Brave, and Firefox Web Cache & Code Cache files',
       paths: [
         path.join(userProfile, 'AppData', 'Local', 'Google', 'Chrome', 'User Data', 'Default', 'Cache'),
+        path.join(userProfile, 'AppData', 'Local', 'Google', 'Chrome', 'User Data', 'Default', 'Code Cache'),
+        path.join(userProfile, 'AppData', 'Local', 'Google', 'Chrome', 'User Data', 'Default', 'GPUCache'),
+        path.join(userProfile, 'AppData', 'Local', 'Google', 'Chrome', 'User Data', 'GrShaderCache'),
+        path.join(userProfile, 'AppData', 'Local', 'Google', 'Chrome', 'User Data', 'ShaderCache'),
         path.join(userProfile, 'AppData', 'Local', 'Microsoft', 'Edge', 'User Data', 'Default', 'Cache'),
+        path.join(userProfile, 'AppData', 'Local', 'Microsoft', 'Edge', 'User Data', 'Default', 'Code Cache'),
         path.join(userProfile, 'AppData', 'Local', 'BraveSoftware', 'Brave-Browser', 'User Data', 'Default', 'Cache'),
         path.join(userProfile, 'AppData', 'Local', 'Mozilla', 'Firefox', 'Profiles')
       ],
       requiresAdmin: false
     },
     {
+      id: 'ide_cache',
+      name: 'IDE Caches (VS Code, Cursor, Antigravity)',
+      description: 'Visual Studio Code, Cursor, Antigravity IDE & Visual Studio caches',
+      paths: [
+        path.join(userProfile, 'AppData', 'Roaming', 'Code', 'Cache'),
+        path.join(userProfile, 'AppData', 'Roaming', 'Code', 'CachedData'),
+        path.join(userProfile, 'AppData', 'Roaming', 'Code', 'GPUCache'),
+        path.join(userProfile, 'AppData', 'Roaming', 'Code', 'logs'),
+        path.join(userProfile, 'AppData', 'Roaming', 'Cursor', 'Cache'),
+        path.join(userProfile, 'AppData', 'Roaming', 'Cursor', 'CachedData'),
+        path.join(userProfile, 'AppData', 'Roaming', 'Antigravity IDE', 'Cache'),
+        path.join(userProfile, 'AppData', 'Roaming', 'Antigravity IDE', 'GPUCache'),
+        path.join(userProfile, 'AppData', 'Local', 'Microsoft', 'VisualStudio')
+      ],
+      requiresAdmin: false
+    },
+    {
+      id: 'ai_tools_cache',
+      name: 'AI Coding Tools Cache (Codex, OpenAI)',
+      description: 'OpenAI Codex, OpenAI Desktop, OpenCode AI caches & logs',
+      paths: [
+        path.join(userProfile, 'AppData', 'Roaming', 'Codex', 'Cache'),
+        path.join(userProfile, 'AppData', 'Roaming', 'Codex', 'logs'),
+        path.join(userProfile, 'AppData', 'Local', 'OpenAI', 'Cache'),
+        path.join(userProfile, 'AppData', 'Roaming', 'ai.opencode.desktop', 'Cache')
+      ],
+      requiresAdmin: false
+    },
+    {
+      id: 'dev_build_cache',
+      name: 'Dev & Build Tool Caches (Go, Playwright, npm)',
+      description: 'Go build cache, Playwright binaries, npm, pnpm, and Electron cache',
+      paths: [
+        path.join(userProfile, 'AppData', 'Local', 'go-build'),
+        path.join(userProfile, 'AppData', 'Local', 'electron'),
+        path.join(userProfile, 'AppData', 'Local', 'node-gyp', 'Cache'),
+        path.join(userProfile, 'AppData', 'Local', 'npm-cache'),
+        path.join(userProfile, 'AppData', 'Local', 'pip', 'Cache'),
+        path.join(userProfile, '.cargo', 'registry', 'cache'),
+        path.join(userProfile, 'AppData', 'Local', 'pnpm', 'cache'),
+        path.join(userProfile, 'AppData', 'Local', 'ms-playwright')
+      ],
+      requiresAdmin: false
+    },
+    {
+      id: 'app_updaters',
+      name: 'App Installer / Updater Caches',
+      description: 'Cached app updater installers (Obsidian, OpenCode, Canva, Logseq)',
+      paths: [
+        path.join(userProfile, 'AppData', 'Local', 'obsidian-updater'),
+        path.join(userProfile, 'AppData', 'Local', '@opencode-aidesktop-updater'),
+        path.join(userProfile, 'AppData', 'Local', 'sparkle-updater'),
+        path.join(userProfile, 'AppData', 'Local', 'canva-updater'),
+        path.join(userProfile, 'AppData', 'Local', 'logseq-updater')
+      ],
+      requiresAdmin: false
+    },
+    {
       id: 'dev_cache',
-      name: 'Developer Caches (C:)',
+      name: 'Developer Package Caches',
       description: 'npm, pnpm, pip, and Cargo build/package cache',
       paths: [
         path.join(userProfile, 'AppData', 'Local', 'npm-cache'),

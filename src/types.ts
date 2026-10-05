@@ -11,7 +11,11 @@ export type CategoryId =
   | 'browser_cache'
   | 'dev_cache'
   | 'event_logs'
-  | 'delivery_optimization';
+  | 'delivery_optimization'
+  | 'ide_cache'
+  | 'ai_tools_cache'
+  | 'dev_build_cache'
+  | 'app_updaters';
 
 export interface TargetCategory {
   id: CategoryId;

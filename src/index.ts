@@ -127,7 +127,11 @@ function parseCategoryInput(input: string): CategoryId[] | 'all' {
     'browser_cache',
     'dev_cache',
     'event_logs',
-    'delivery_optimization'
+    'delivery_optimization',
+    'ide_cache',
+    'ai_tools_cache',
+    'dev_build_cache',
+    'app_updaters'
   ];
   const split = input.split(',').map((s) => s.trim().toLowerCase()) as CategoryId[];
   return split.filter((id) => validIds.includes(id));
