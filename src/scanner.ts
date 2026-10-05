@@ -64,6 +64,54 @@ export function getTargetCategories(): TargetCategory[] {
       paths: [path.join(userProfile, 'AppData', 'Local', 'Microsoft', 'Windows', 'Explorer')],
       requiresAdmin: false,
       patterns: [/^thumbcache_.*\.db$/i, /^iconcache_.*\.db$/i]
+    },
+    {
+      id: 'browser_cache',
+      name: 'Browser Caches (C:)',
+      description: 'Chrome, Edge, Brave, and Firefox Web Cache files',
+      paths: [
+        path.join(userProfile, 'AppData', 'Local', 'Google', 'Chrome', 'User Data', 'Default', 'Cache'),
+        path.join(userProfile, 'AppData', 'Local', 'Microsoft', 'Edge', 'User Data', 'Default', 'Cache'),
+        path.join(userProfile, 'AppData', 'Local', 'BraveSoftware', 'Brave-Browser', 'User Data', 'Default', 'Cache'),
+        path.join(userProfile, 'AppData', 'Local', 'Mozilla', 'Firefox', 'Profiles')
+      ],
+      requiresAdmin: false
+    },
+    {
+      id: 'dev_cache',
+      name: 'Developer Caches (C:)',
+      description: 'npm, pnpm, pip, and Cargo build/package cache',
+      paths: [
+        path.join(userProfile, 'AppData', 'Local', 'npm-cache'),
+        path.join(userProfile, 'AppData', 'Local', 'pip', 'Cache'),
+        path.join(userProfile, '.cargo', 'registry', 'cache'),
+        path.join(userProfile, 'AppData', 'Local', 'pnpm', 'cache')
+      ],
+      requiresAdmin: false
+    },
+    {
+      id: 'event_logs',
+      name: 'Windows Event Logs (C:)',
+      description: 'System and application event log files',
+      paths: [path.join(systemRoot, 'System32', 'winevt', 'Logs')],
+      requiresAdmin: true
+    },
+    {
+      id: 'delivery_optimization',
+      name: 'Delivery Optimization (C:)',
+      description: 'Cached Windows Update peer-to-peer distribution files',
+      paths: [
+        path.join(systemRoot, 'SoftwareDistribution', 'DeliveryOptimization'),
+        'C:\\ProgramData\\Microsoft\\Windows\\DeliveryOptimization'
+      ],
+      requiresAdmin: true
+    },
+    {
+      id: 'recycle_bin',
+      name: 'System Recycle Bin (C:)',
+      description: 'Deleted files in Windows Recycle Bin',
+      paths: ['C:\\$Recycle.Bin'],
+      requiresAdmin: true
     }
   ];
 }

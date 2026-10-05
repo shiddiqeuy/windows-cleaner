@@ -115,7 +115,20 @@ function parseCategoryInput(input: string): CategoryId[] | 'all' {
   if (!input || input.trim().toLowerCase() === 'all') {
     return 'all';
   }
-  const validIds: CategoryId[] = ['temp', 'system_temp', 'prefetch', 'updates', 'logs', 'dumps', 'thumbnails'];
+  const validIds: CategoryId[] = [
+    'temp',
+    'system_temp',
+    'prefetch',
+    'updates',
+    'logs',
+    'dumps',
+    'thumbnails',
+    'recycle_bin',
+    'browser_cache',
+    'dev_cache',
+    'event_logs',
+    'delivery_optimization'
+  ];
   const split = input.split(',').map((s) => s.trim().toLowerCase()) as CategoryId[];
   return split.filter((id) => validIds.includes(id));
 }

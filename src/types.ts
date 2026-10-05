@@ -6,7 +6,12 @@ export type CategoryId =
   | 'logs' 
   | 'dumps' 
   | 'defender' 
-  | 'thumbnails';
+  | 'thumbnails'
+  | 'recycle_bin'
+  | 'browser_cache'
+  | 'dev_cache'
+  | 'event_logs'
+  | 'delivery_optimization';
 
 export interface TargetCategory {
   id: CategoryId;
